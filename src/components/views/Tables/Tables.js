@@ -12,12 +12,12 @@ import Grid from '@material-ui/core/Grid';
 import TextField from '@material-ui/core/TextField';
 
 const demoContent = [
-  {id: 1, status: 'booked', eventName: 'birthday'},
-  {id: 2, status: 'booked', eventName: ''},
-  {id: 3, status: 'event', eventName: 'pizza time'},
-  {id: 4, status: 'booked', eventName: ''},
-  {id: 5, status: 'event', eventName: 'happy hours'},
-  {id: 6, status: 'booked', eventName: ''},
+  {id: 1, status: 'booking', eventName: 'birthday'},
+  {id: 2, status: 'booking', eventName: ''},
+  {id: 3, status: 'events', eventName: 'pizza time'},
+  {id: 4, status: 'booking', eventName: ''},
+  {id: 5, status: 'events', eventName: 'happy hours'},
+  {id: 6, status: 'booking', eventName: ''},
 ];
 
 const Tables = () => {
@@ -31,7 +31,7 @@ const Tables = () => {
         {demoContent.map(row => (
           i === row.id ? (
             <TableCell key={row.id}>
-              <Button component={Link} to={`${process.env.PUBLIC_URL}/waiter/order/${row.id}`}>
+              <Button component={Link} to={`${process.env.PUBLIC_URL}/tables/${row.status}/${row.id}`}>
                 {`${row.eventName} ${row.status} `}
               </Button>
             </TableCell>
