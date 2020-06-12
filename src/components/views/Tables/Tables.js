@@ -12,24 +12,28 @@ import Grid from '@material-ui/core/Grid';
 import TextField from '@material-ui/core/TextField';
 
 const demoContent = [
-  {id: 1, status: 'booking', eventName: 'birthday'},
-  {id: 2, status: 'booking', eventName: ''},
-  {id: 3, status: 'events', eventName: 'pizza time'},
-  {id: 4, status: 'booking', eventName: ''},
-  {id: 5, status: 'events', eventName: 'happy hours'},
-  {id: 6, status: 'booking', eventName: ''},
+  {id: 1, time:12.5, status: 'booking', eventName: 'birthday'},
+  {id: 2, time:15.5, status: 'booking', eventName: ''},
+  {id: 3, time:16.0, status: 'events', eventName: 'pizza time'},
+  {id: 4, time:22.5, status: 'booking', eventName: ''},
+  {id: 5, time:18.5, status: 'events', eventName: 'happy hours'},
+  {id: 6, time:22.0, status: 'booking', eventName: ''},
 ];
 
 const Tables = () => {
 
-  const hour = (time) => {
+  const numberToHour = (number) => {
+    return (Math.floor(number) % 24) + ':' + (number % 1 * 60 + '').padStart(2, '0');
+  };
+
+  const hour = () => {
     const item = [];
-    for(let i = time; i < 10; i++) 
+    for(let i = 12.0; i <= 24.0; i+=0.5) 
     {
       item.push(<TableRow key={i}>
-        <TableCell>{i}</TableCell>
+        <TableCell>{numberToHour(i)}</TableCell>
         {demoContent.map(row => (
-          i === row.id ? (
+          i === row.time ? (
             <TableCell key={row.id}>
               <Button component={Link} to={`${process.env.PUBLIC_URL}/tables/${row.status}/${row.id}`}>
                 {`${row.eventName} ${row.status} `}
@@ -86,9 +90,15 @@ const Tables = () => {
           </TableRow>
         </TableHead>
         <TableBody>
-          {hour(1)}
+          {hour()}
         </TableBody>
       </Table>
+      <Grid container justify="space-around">
+        <div className={styles.newButtons}>
+          <Button component={Link} to={`${process.env.PUBLIC_URL}/tables/booking/new`}>NEW BOOKING </Button>
+          <Button component={Link} to={`${process.env.PUBLIC_URL}/tables/events/new`}>NEW EVENT </Button>
+        </div>
+      </Grid>
     </Paper>
 
   );

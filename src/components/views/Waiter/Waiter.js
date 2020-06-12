@@ -14,7 +14,7 @@ const linkToTable = (number) => (
 );
 
 const demoContent = [
-  {id: linkToTable(1), status: 'free', order: null},
+  {id: linkToTable('new'), status: 'free', order: null},
   {id: linkToTable(2), status: 'thinking', order: null},
   {id: linkToTable(3), status: 'ordered', order: 123},
   {id: linkToTable(4), status: 'prepared', order: 234},
@@ -70,7 +70,7 @@ const Waiter = () => {
         </TableHead>
         <TableBody>
           {demoContent.map(row => (
-            <TableRow key={row.id}>
+            <TableRow key={row.id.props.children}>
               <TableCell component="th" scope="row">
                 {row.id}
               </TableCell>

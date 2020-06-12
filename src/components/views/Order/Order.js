@@ -9,6 +9,7 @@ const demoContent = [
   {id: '4', tableNo: 2, status: 'ORDERED', menu: 'pizza drinks pizza drinks', drinks: 'drink', price: '30PLN'},
   {id: '5', tableNo: 4, status: 'ORDERED', menu: 'pizza drinks', drinks: 'drink', price: '30PLN'},
   {id: '6', tableNo: 5, status: 'ORDERED', menu: 'pizza drinks', drinks: 'drink', price: '30PLN'},
+  {id: 'new', tableNo: '', status: '', menu: '', drinks: '', price: ''},
 ];
 
 
