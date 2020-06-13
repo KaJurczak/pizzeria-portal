@@ -1,5 +1,5 @@
 import {combineReducers, createStore, applyMiddleware} from 'redux';
-import thunk from 'redux-thunk';
+// import thunk from 'redux-thunk';
 import { composeWithDevTools } from 'redux-devtools-extension';
 
 import tablesReducer from './tablesRedux';
@@ -34,7 +34,7 @@ const store = createStore(
   combinedReducers,
   initialState,
   composeWithDevTools(
-    applyMiddleware(thunk)
+    // applyMiddleware(thunk)
   )
 );
 
