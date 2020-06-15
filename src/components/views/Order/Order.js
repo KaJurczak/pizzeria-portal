@@ -18,7 +18,7 @@ const Order = (value) => {
   
   const content = () => {
     const info = [];
-    demoContent.map(row => {
+    demoContent.forEach(row => {
       if (row.id === id){
         info.push(
           <div key={id}>

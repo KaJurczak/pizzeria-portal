@@ -54,7 +54,7 @@ const eventStatus = {
 };
 
 const statistic = () => {
-  demoStatistic.map(row => {
+  demoStatistic.forEach(row => {
     if (row.status === 'free table'){
       orderingStatus.free.push(row.table);
     } else if (row.status === 'ordered'){
@@ -79,7 +79,7 @@ const statistic = () => {
 statistic();
 
 const booking = () => {
-  demoBooking.map(row => {
+  demoBooking.forEach(row => {
     if (row.status === 'booked'){
       bookingStatus.booked.push(row.table);
     } else if (row.status === 'event'){
