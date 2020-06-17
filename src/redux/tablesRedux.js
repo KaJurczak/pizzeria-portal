@@ -41,8 +41,17 @@ export const changeStatusInApi = (id, status) => {
   return (dispatch, getState) => {
     dispatch(fetchStarted());
 
+    const infoFromState = getState();
+    console.log('infoFromState', infoFromState);
+    const newData = infoFromState.tables.data.map(table => {
+      console.log('table', table);
+      if(table.id === id) return {...table, status: status};
+      else return table;
+    });
+    console.log('newData', newData);
+
     Axios
-      .get(`${api.url}/${api.tables}`)
+      .put(`${api.url}/${api.tables}`, newData)
       .then(() => {
         dispatch(changeStatus(id, status));
       })
